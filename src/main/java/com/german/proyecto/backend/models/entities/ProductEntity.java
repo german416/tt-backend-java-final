@@ -2,6 +2,7 @@ package com.german.proyecto.backend.models.entities;
 
 import com.german.proyecto.backend.exceptions.PriceCanNotBeZeroOrLessException;
 import com.german.proyecto.backend.exceptions.StockCanNotBeLessThanZeroException;
+import com.german.proyecto.backend.models.dtos.EditProductDto;
 import jakarta.persistence.*;
 
 @Entity
@@ -67,6 +68,12 @@ public class ProductEntity {
     //#endregion
 
     //#region MÉTODOS PÚBLICOS
+    public ProductEntity update(EditProductDto newData) throws StockCanNotBeLessThanZeroException, PriceCanNotBeZeroOrLessException {
+        name = newData.name;
+        setPrice(newData.price);
+        setStock(newData.stock);
 
+        return this;
+    }
     //#endregion
 }
