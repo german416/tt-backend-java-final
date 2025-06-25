@@ -11,10 +11,11 @@ public class ProductEntity {
     //#region ATRIBUTOS
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
-    private double price = 0.0;
-    private int stock = 0;
+    private Double price = 0.0;
+    private Integer stock = 0;
+
     //#endregion
 
     //#region CONSTRUCTORES
