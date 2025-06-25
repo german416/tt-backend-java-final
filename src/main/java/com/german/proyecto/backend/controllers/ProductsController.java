@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
-public class ProductController {
+@RequestMapping("/api/v1/products")
+public class ProductsController {
     private final ProductService service;
 
     @Autowired
-    public ProductController(ProductService service) {
+    public ProductsController(ProductService service) {
         this.service = service;
     }
 
@@ -57,8 +57,9 @@ public class ProductController {
         }
 
         try {
+            ProductEntity product = service.getById(id);
             service.deleteById(id);
-            return ResponseEntity.status(HttpStatus.OK).body("El producto fue eliminado.");
+            return ResponseEntity.status(HttpStatus.OK).body("Recurso eliminado.\n" + product);
         } catch (ProductNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El producto no fue encontrado.");
         }
@@ -69,7 +70,7 @@ public class ProductController {
         ProductEntity product;
 
         try {
-            product = new ProductEntity(request.name, request.price, request.stock);
+            product = new ProductEntity(request.name, request.description, request.price, request.stock);
         } catch(StockCanNotBeLessThanZeroException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Stock no puede ser menor que cero (0).");
         } catch (PriceCanNotBeZeroOrLessException e) {
