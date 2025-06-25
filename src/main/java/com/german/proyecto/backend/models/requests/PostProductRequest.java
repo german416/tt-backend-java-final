@@ -4,4 +4,5 @@ public class PostProductRequest {
     public String name;
     public double price;
     public int stock;
+    public String description;
 }
