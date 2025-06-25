@@ -5,6 +5,8 @@ import com.german.proyecto.backend.exceptions.StockCanNotBeLessThanZeroException
 import com.german.proyecto.backend.models.dtos.EditProductDto;
 import jakarta.persistence.*;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "product")
 public class ProductEntity {
@@ -15,22 +17,30 @@ public class ProductEntity {
     private String name;
     private Double price = 0.0;
     private Integer stock = 0;
+    private String description;
 
+    private Boolean enabled = true;
+    private Instant creationDateTime = Instant.now();
     //#endregion
 
     //#region CONSTRUCTORES
     public ProductEntity() {};
 
-    public ProductEntity(String name, double price, int stock) throws PriceCanNotBeZeroOrLessException, StockCanNotBeLessThanZeroException {
+    public ProductEntity(String name, String description, double price, int stock) throws PriceCanNotBeZeroOrLessException, StockCanNotBeLessThanZeroException {
         this.name = name;
         setPrice(price);
         setStock(stock);
+        this.description = description;
     }
     //#endregion
 
     //#region GETTERS
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public double getPrice() {
@@ -44,11 +54,27 @@ public class ProductEntity {
     public int getId() {
         return id;
     }
+
+    public Instant getCreationDateTime() {
+        return creationDateTime;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
     //#endregion
 
     //#region SETTERS
     public void setName(String name) {
         this.name = name.trim().toLowerCase();
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public void setPrice(double price) throws PriceCanNotBeZeroOrLessException {
