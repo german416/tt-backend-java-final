@@ -6,6 +6,7 @@ import com.german.proyecto.backend.models.dtos.EditProductDto;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -21,6 +22,10 @@ public class ProductEntity {
 
     private Boolean enabled = true;
     private Instant creationDateTime = Instant.now();
+
+    // Relación inversa. Me permite tener "a mano" todos los archivos asociados al producto.
+    @OneToMany(mappedBy = "product")
+    private List<FileEntity> files;
     //#endregion
 
     //#region CONSTRUCTORES
