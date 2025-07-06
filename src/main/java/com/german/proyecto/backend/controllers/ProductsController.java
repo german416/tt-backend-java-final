@@ -1,5 +1,6 @@
 package com.german.proyecto.backend.controllers;
 
+import com.german.proyecto.backend.constants.ApiRoutes;
 import com.german.proyecto.backend.exceptions.PriceCanNotBeZeroOrLessException;
 import com.german.proyecto.backend.exceptions.ProductNotFoundException;
 import com.german.proyecto.backend.exceptions.StockCanNotBeLessThanZeroException;
@@ -22,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/products")
+@RequestMapping(ApiRoutes.PRODUCT)
 public class ProductsController {
     @Value("${storage.product.images}")
     private String storage;
