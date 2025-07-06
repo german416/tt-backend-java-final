@@ -26,7 +26,7 @@ public class ProductsController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> create(@PathVariable(required = false) Integer id, @RequestBody(required = false) PutProductRequest request) {
+    public ResponseEntity<?> editById(@PathVariable(required = false) Integer id, @RequestBody(required = false) PutProductRequest request) {
         if(id == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El parámetro id es obligatorio.");
         }
@@ -51,7 +51,7 @@ public class ProductsController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable(required = false) Integer id) {
+    public ResponseEntity<?> deleteById(@PathVariable(required = false) Integer id) {
         if(id == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El parámetro id es obligatorio.");
         }
