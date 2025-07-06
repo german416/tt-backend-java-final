@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class ProductEntity {
     //#region ATRIBUTOS
     @Id
