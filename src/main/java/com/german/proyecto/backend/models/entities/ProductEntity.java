@@ -43,15 +43,15 @@ public class ProductEntity {
         return description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
