@@ -19,12 +19,24 @@ public class UserEntity {
     private String email;
     private String passwordHash;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", nullable = false)
+    private RoleEntity role;
+
     // @todo: insertar la lógica adecuada en los setters
     public UserEntity(PostUserRequest request) {
         setFirstName(request.firstName);
         setLastName(request.lastName);
         setEmail(request.email);
         setPasswordHash(request.password);
+    }
+
+    public UserEntity(String firstName, String lastName, String email, String passwordHash, RoleEntity role) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setPasswordHash(passwordHash);
+        setRole(role);
     }
 
     public Boolean getEnabled() {
@@ -73,5 +85,13 @@ public class UserEntity {
 
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
+    }
+
+    public RoleEntity getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEntity role) {
+        this.role = role;
     }
 }
