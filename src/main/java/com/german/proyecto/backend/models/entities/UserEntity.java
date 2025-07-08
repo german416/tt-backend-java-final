@@ -11,12 +11,15 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private Boolean enabled = true;
     private Instant creationDateTime = Instant.now();
-
     private String firstName;
     private String lastName;
+
+    @Column(unique = true)
     private String email;
+
     private String passwordHash;
 
     @ManyToOne(fetch = FetchType.EAGER)
