@@ -37,6 +37,7 @@ public class ProductsController {
         this.fileService = fileService;
     }
 
+    // todo: también hay que editar las imágenes asociadas al producto.
     @PutMapping("/update/{id}")
     public ResponseEntity<?> editById(@PathVariable(required = false) Integer id, @RequestBody(required = false) PutProductRequest request) {
         if(id == null) {
@@ -62,6 +63,7 @@ public class ProductsController {
         }
     }
 
+    // todo: también hay que borrar las imágenes asociadas al producto.
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable(required = false) Integer id) {
         if(id == null) {

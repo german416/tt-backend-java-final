@@ -26,7 +26,7 @@ public class UserEntity {
     @JoinColumn(name = "role_id", nullable = false)
     private RoleEntity role;
 
-    // @todo: insertar la lógica adecuada en los setters
+    // todo: insertar la lógica adecuada en los setters
     public UserEntity(PostUserRequest request) {
         setFirstName(request.firstName);
         setLastName(request.lastName);
