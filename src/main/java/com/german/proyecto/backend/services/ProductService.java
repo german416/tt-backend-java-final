@@ -6,6 +6,7 @@ import com.german.proyecto.backend.exceptions.StockCanNotBeLessThanZeroException
 import com.german.proyecto.backend.models.dtos.EditProductDto;
 import com.german.proyecto.backend.models.entities.ProductEntity;
 import com.german.proyecto.backend.repositories.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,9 @@ public class ProductService {
         return repository.findAll();
     }
 
+    @Transactional
     public ProductEntity getById(int id) {
-        return repository.findById(id).orElse(null);
+        return repository.findByIdWithFiles(id).orElse(null);
     }
 
     // todo: public ProductEntity getByString(String query) {}

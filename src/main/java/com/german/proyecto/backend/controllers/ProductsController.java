@@ -9,6 +9,9 @@ import com.german.proyecto.backend.models.dtos.EditProductDto;
 import com.german.proyecto.backend.models.entities.ProductEntity;
 import com.german.proyecto.backend.models.requests.PostProductRequest;
 import com.german.proyecto.backend.models.requests.PutProductRequest;
+import com.german.proyecto.backend.models.responses.GenericErrorResponse;
+import com.german.proyecto.backend.models.responses.GetProductResponse;
+import com.german.proyecto.backend.models.responses.GetProductsResponse;
 import com.german.proyecto.backend.models.responses.PostProductResponse;
 import com.german.proyecto.backend.services.FileService;
 import com.german.proyecto.backend.services.ProductService;
@@ -20,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -128,13 +132,19 @@ public class ProductsController {
 
     @GetMapping
     public ResponseEntity<?> getAll() {
-        List<ProductEntity> products = productService.getAll();
+        ArrayList<ProductEntity> products = (ArrayList<ProductEntity>) productService.getAll();
 
         if(products.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(products);
+        try {
+            GetProductsResponse response = new GetProductsResponse(products);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new GenericErrorResponse(e.getMessage(), e.getStackTrace().toString()));
+        }
+
     }
 
     @GetMapping("/{id}")
@@ -143,13 +153,20 @@ public class ProductsController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El parámetro id es obligatorio.");
         }
 
-        ProductEntity product = productService.getById(id);
+        try {
+            ProductEntity product = productService.getById(id);
 
-        if(product == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El producto no fue encontrado.");
+            if(product == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El producto no fue encontrado.");
+            }
+
+            GetProductResponse response = new GetProductResponse(product);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new GenericErrorResponse(e.getMessage(), e.getStackTrace().toString()));
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(product);
+
     }
 
     private Boolean fileExists(MultipartFile[] files) {

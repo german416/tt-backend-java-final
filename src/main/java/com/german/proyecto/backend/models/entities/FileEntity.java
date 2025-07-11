@@ -20,10 +20,18 @@ public class FileEntity {
     @JoinColumn(name = "productId", nullable = false)
     private ProductEntity product;
 
+    public FileEntity() {}
+
     public FileEntity(String name, String type, ProductEntity product) {
         this.name = name;
         this.type = type;
         this.product = product;
+    }
+
+
+    @Override
+    public String toString() {
+        return getName();
     }
 
     public String getName() {

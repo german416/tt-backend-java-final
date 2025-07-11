@@ -24,7 +24,7 @@ public class ProductEntity {
     private Instant creationDateTime = Instant.now();
 
     // Relación inversa. Me permite tener "a mano" todos los archivos asociados al producto.
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<FileEntity> files;
     //#endregion
 
@@ -58,6 +58,10 @@ public class ProductEntity {
 
     public Integer getId() {
         return id;
+    }
+
+    public List<FileEntity> getFiles() {
+        return files;
     }
 
     public Instant getCreationDateTime() {
