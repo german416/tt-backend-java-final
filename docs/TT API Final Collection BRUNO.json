@@ -1,0 +1,270 @@
+{
+  "name": "TT API Final Collection",
+  "version": "1",
+  "items": [
+    {
+      "type": "folder",
+      "name": "Products",
+      "filename": "Products",
+      "root": {
+        "meta": {
+          "name": "Products"
+        }
+      },
+      "items": [
+        {
+          "type": "http",
+          "name": "Borrar producto por id",
+          "filename": "Borrar producto por id.bru",
+          "seq": 4,
+          "request": {
+            "url": "{{url_products}}/2",
+            "method": "DELETE",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Crear producto",
+          "filename": "Crear producto.bru",
+          "seq": 3,
+          "request": {
+            "url": "{{url_products}}/",
+            "method": "POST",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "multipartForm",
+              "json": "{\n  \"name\":\"Yerba Mate Playadito\",\n  \"price\":4800,\n  \"stock\":45,\n  \"description\":\"Yerba en empaque amarillo de 1/2 kg\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": [
+                {
+                  "type": "text",
+                  "name": "name",
+                  "value": "Queso crema Serenisimo Creamtto",
+                  "enabled": true
+                },
+                {
+                  "type": "text",
+                  "name": "price",
+                  "value": "3500",
+                  "enabled": true
+                },
+                {
+                  "type": "text",
+                  "name": "stock",
+                  "value": "77",
+                  "enabled": true
+                },
+                {
+                  "type": "text",
+                  "name": "description",
+                  "value": "Presentación familiar de 450gr",
+                  "enabled": true
+                },
+                {
+                  "type": "file",
+                  "name": "files",
+                  "value": [
+                    "C:\\Users\\German\\Downloads\\queso1.png"
+                  ],
+                  "enabled": true
+                },
+                {
+                  "type": "file",
+                  "name": "files",
+                  "value": [
+                    "C:\\Users\\German\\Downloads\\queso2.png"
+                  ],
+                  "enabled": true
+                }
+              ],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Editar producto por id",
+          "filename": "Editar producto por id.bru",
+          "seq": 5,
+          "request": {
+            "url": "{{url_products}}/update/2",
+            "method": "PUT",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"name\":\"Yerba Mate Rosamonte\",\n  \"price\":2000,\n  \"stock\":90\n}",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Listar productos",
+          "filename": "Listar productos.bru",
+          "seq": 1,
+          "request": {
+            "url": "{{url_products}}",
+            "method": "GET",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Recuperar producto por id",
+          "filename": "Recuperar producto por id.bru",
+          "seq": 2,
+          "request": {
+            "url": "{{url_products}}/11",
+            "method": "GET",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Users",
+      "filename": "Users",
+      "root": {
+        "meta": {
+          "name": "Users"
+        }
+      },
+      "items": [
+        {
+          "type": "http",
+          "name": "Crear usuario",
+          "filename": "Crear usuario.bru",
+          "seq": 1,
+          "request": {
+            "url": "{{url_users}}",
+            "method": "POST",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"firstName\": \"german rodrigo\",\n  \"lastName\": \"alvarez fabre\",\n  \"email\": \"germanalvarez@gmail.com\",\n  \"password\": \"1234\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "activeEnvironmentUid": "BdIYw8NKNmA0dhVgnKadA",
+  "environments": [
+    {
+      "variables": [
+        {
+          "name": "url",
+          "value": "http://localhost:8080/api/v1",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "url_products",
+          "value": "{{url}}/products",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "url_users",
+          "value": "{{url}}/users",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        }
+      ],
+      "name": "Base Environment"
+    }
+  ],
+  "brunoConfig": {
+    "version": "1",
+    "name": "TT API Final Collection",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0.0014696121215820312,
+    "filesCount": 9
+  }
+}

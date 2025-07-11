@@ -1,0 +1,237 @@
+{
+  "info": {
+    "name": "TT API Final Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Borrar producto por id",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{url_products}}/2",
+              "protocol": "",
+              "host": [
+                "{{url_products}}"
+              ],
+              "path": [
+                "2"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Crear producto",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{url_products}}/",
+              "protocol": "",
+              "host": [
+                "{{url_products}}/"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Queso crema Serenisimo Creamtto",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "price",
+                  "value": "3500",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "stock",
+                  "value": "77",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "description",
+                  "value": "Presentación familiar de 450gr",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "files",
+                  "value": [
+                    "C:\\Users\\German\\Downloads\\queso1.png"
+                  ],
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "files",
+                  "value": [
+                    "C:\\Users\\German\\Downloads\\queso2.png"
+                  ],
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Editar producto por id",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{url_products}}/update/2",
+              "protocol": "",
+              "host": [
+                "{{url_products}}"
+              ],
+              "path": [
+                "update",
+                "2"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"Yerba Mate Rosamonte\",\n  \"price\":2000,\n  \"stock\":90\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Listar productos",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{url_products}}",
+              "protocol": "",
+              "host": [
+                "{{url_products}}"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Recuperar producto por id",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{url_products}}/11",
+              "protocol": "",
+              "host": [
+                "{{url_products}}"
+              ],
+              "path": [
+                "11"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Crear usuario",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{url_users}}",
+              "protocol": "",
+              "host": [
+                "{{url_users}}"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"german rodrigo\",\n  \"lastName\": \"alvarez fabre\",\n  \"email\": \"germanalvarez@gmail.com\",\n  \"password\": \"1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "url_products",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "url_users",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "url",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
