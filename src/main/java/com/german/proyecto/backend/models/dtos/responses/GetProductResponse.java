@@ -1,4 +1,4 @@
-package com.german.proyecto.backend.models.responses;
+package com.german.proyecto.backend.models.dtos.responses;
 
 import com.german.proyecto.backend.models.entities.FileEntity;
 import com.german.proyecto.backend.models.entities.ProductEntity;

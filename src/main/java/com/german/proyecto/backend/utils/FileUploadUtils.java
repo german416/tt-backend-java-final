@@ -1,4 +1,4 @@
-package com.german.proyecto.backend.helpers;
+package com.german.proyecto.backend.utils;
 
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public final class FilesHelper {
-    private FilesHelper() {}
+public final class FileUploadUtils {
+    private FileUploadUtils() {}
 
     static public String[] upload(MultipartFile[] files, String storagePath) throws Exception {
         ArrayList<String> fileNames = new ArrayList<String>();

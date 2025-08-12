@@ -1,4 +1,4 @@
-package com.german.proyecto.backend.models.responses;
+package com.german.proyecto.backend.models.dtos.responses;
 
 public class GenericErrorResponse {
     public String message;

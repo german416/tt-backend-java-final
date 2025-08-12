@@ -4,15 +4,15 @@ import com.german.proyecto.backend.constants.ApiRoutes;
 import com.german.proyecto.backend.exceptions.PriceCanNotBeZeroOrLessException;
 import com.german.proyecto.backend.exceptions.ProductNotFoundException;
 import com.german.proyecto.backend.exceptions.StockCanNotBeLessThanZeroException;
-import com.german.proyecto.backend.helpers.FilesHelper;
+import com.german.proyecto.backend.utils.FileUploadUtils;
 import com.german.proyecto.backend.models.dtos.EditProductDto;
 import com.german.proyecto.backend.models.entities.ProductEntity;
-import com.german.proyecto.backend.models.requests.PostProductRequest;
-import com.german.proyecto.backend.models.requests.PutProductRequest;
-import com.german.proyecto.backend.models.responses.GenericErrorResponse;
-import com.german.proyecto.backend.models.responses.GetProductResponse;
-import com.german.proyecto.backend.models.responses.GetProductsResponse;
-import com.german.proyecto.backend.models.responses.PostProductResponse;
+import com.german.proyecto.backend.models.dtos.requests.PostProductRequest;
+import com.german.proyecto.backend.models.dtos.requests.PutProductRequest;
+import com.german.proyecto.backend.models.dtos.responses.GenericErrorResponse;
+import com.german.proyecto.backend.models.dtos.responses.GetProductResponse;
+import com.german.proyecto.backend.models.dtos.responses.GetProductsResponse;
+import com.german.proyecto.backend.models.dtos.responses.PostProductResponse;
 import com.german.proyecto.backend.services.FileService;
 import com.german.proyecto.backend.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping(ApiRoutes.PRODUCT)
@@ -118,7 +117,7 @@ public class ProductsController {
         String[] names = null;
 
         if(fileExists(files)) {
-            names = FilesHelper.upload(files, storage);
+            names = FileUploadUtils.upload(files, storage);
         }
 
         return names;

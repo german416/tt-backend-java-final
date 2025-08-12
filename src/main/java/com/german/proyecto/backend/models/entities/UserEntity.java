@@ -1,6 +1,6 @@
 package com.german.proyecto.backend.models.entities;
 
-import com.german.proyecto.backend.models.requests.PostUserRequest;
+import com.german.proyecto.backend.models.dtos.requests.PostUserRequest;
 import jakarta.persistence.*;
 
 import java.time.Instant;

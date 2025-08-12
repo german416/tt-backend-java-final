@@ -1,4 +1,4 @@
-package com.german.proyecto.backend.models.requests;
+package com.german.proyecto.backend.models.dtos.requests;
 
 public class PostUserRequest {
     public String firstName;

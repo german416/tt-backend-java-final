@@ -2,8 +2,8 @@ package com.german.proyecto.backend.controllers;
 
 import com.german.proyecto.backend.constants.ApiRoutes;
 import com.german.proyecto.backend.models.entities.UserEntity;
-import com.german.proyecto.backend.models.requests.PostUserRequest;
-import com.german.proyecto.backend.models.responses.GenericErrorResponse;
+import com.german.proyecto.backend.models.dtos.requests.PostUserRequest;
+import com.german.proyecto.backend.models.dtos.responses.GenericErrorResponse;
 import com.german.proyecto.backend.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package com.german.proyecto.backend.models.dtos;
 
-import com.german.proyecto.backend.models.requests.PutProductRequest;
+import com.german.proyecto.backend.models.dtos.requests.PutProductRequest;
 
 // todo: agregar validaciones
 public class EditProductDto {
