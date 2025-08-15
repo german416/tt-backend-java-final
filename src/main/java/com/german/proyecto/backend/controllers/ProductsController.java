@@ -4,7 +4,7 @@ import com.german.proyecto.backend.constants.ApiRoutes;
 import com.german.proyecto.backend.exceptions.PriceCanNotBeZeroOrLessException;
 import com.german.proyecto.backend.exceptions.ProductNotFoundException;
 import com.german.proyecto.backend.exceptions.StockCanNotBeLessThanZeroException;
-import com.german.proyecto.backend.utils.FileUploadUtils;
+import com.german.proyecto.backend.utils.FileUploadUtil;
 import com.german.proyecto.backend.models.dtos.EditProductDto;
 import com.german.proyecto.backend.models.entities.ProductEntity;
 import com.german.proyecto.backend.models.dtos.requests.PostProductRequest;
@@ -117,7 +117,7 @@ public class ProductsController {
         String[] names = null;
 
         if(fileExists(files)) {
-            names = FileUploadUtils.upload(files, storage);
+            names = FileUploadUtil.upload(files, storage);
         }
 
         return names;

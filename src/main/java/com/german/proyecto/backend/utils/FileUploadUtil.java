@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public final class FileUploadUtils {
-    private FileUploadUtils() {}
+public final class FileUploadUtil {
+    private FileUploadUtil() {}
 
     static public String[] upload(MultipartFile[] files, String storagePath) throws Exception {
         ArrayList<String> fileNames = new ArrayList<String>();
